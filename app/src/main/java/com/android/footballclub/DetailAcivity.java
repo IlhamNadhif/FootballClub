@@ -39,7 +39,6 @@ public class DetailAcivity extends AppCompatActivity {
 
         extras = getIntent().getExtras();
         tvNamaTeam = (TextView)findViewById(R.id.tvClubTittle);
-//        tvdesc = (TextView)findViewById(R.id.tvDescriptionValue);
         tvNegara = (TextView)findViewById(R.id.tvCountry);
         ivlogo = (ImageView) findViewById(R.id.ivPoster);
         ivcover = (ImageView) findViewById(R.id.ivCover);
@@ -50,13 +49,11 @@ public class DetailAcivity extends AppCompatActivity {
             id = extras.getString("id");
             title = extras.getString("namaClub");
             logo = extras.getString("logoClub");
-//            description = extras.getString("deskripsi");
             country = extras.getString("negara");
             cover = extras.getString("stadiun");
 
             tvNamaTeam.setText(title);
             tvNegara.setText(country);
-//            tvdesc.setText(description);
             Glide.with(DetailAcivity.this)
                     .load(logo)
                     .override(Target.SIZE_ORIGINAL)

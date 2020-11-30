@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardEvent"
+    android:layout_margin="10dp"
+    android:elevation="10dp"
+    app:cardElevation="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/tvMatchTeam1"
+                    android:src="@drawable/ic_launcher_background"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_marginRight="18dp"
+                        android:padding="5dp"
+                        android:textSize="17dp"
+                        android:textColor="#1C35C1"
+                        android:textStyle="bold"
+                        android:text="Arsenal"
+                        android:id="@+id/matchTeam1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_marginRight="18dp"
+                        android:padding="5dp"
+                        android:textSize="17dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="6"
+                        android:id="@+id/matchScoreTeam1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+            <TextView
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:text="VS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:padding="5dp"
+                    android:textSize="17dp"
+                    android:textColor="#1C35C1"
+                    android:textStyle="bold"
+                    android:text="Liverpool"
+                    android:id="@+id/matchTeam2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginRight="18dp"
+                    android:padding="5dp"
+                    android:textSize="17dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="4"
+                    android:id="@+id/matchScoreTeam2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+                <ImageView
+                    android:id="@+id/tvMatchTeam2"
+                    android:src="@drawable/ic_launcher_background"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Date : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/eventDate"
+                android:text="20/20/2090"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

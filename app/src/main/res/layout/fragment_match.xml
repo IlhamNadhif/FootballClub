@@ -6,12 +6,9 @@
     tools:context=".MatchFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
-        android:textSize="40dp"
-        android:textColor="@color/colorAccent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMatchResult"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Match" />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

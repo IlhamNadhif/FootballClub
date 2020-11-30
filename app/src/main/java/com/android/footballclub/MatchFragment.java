@@ -3,10 +3,25 @@ package com.android.footballclub;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,10 +75,89 @@ public class MatchFragment extends Fragment {
         }
     }
 
+    Bundle extras;
+    Integer id;
+
+    private RecyclerView recyclerView;
+    private DataAdapterMatchResult dataAdapterMatchResult;
+    private ArrayList<ModelMatchResult> DataArrayListMatchResult; //kit add kan ke adapter
+    private ImageView tambah_data;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_match, container, false);
+
+        Bundle extras = getActivity().getIntent().getExtras();
+        if (extras != null) {
+
+            id = extras.getInt("id");
+        }
+
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewMatchResult);
+
+        addDataOnline();
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_match, container, false);
+        return view;
     }
+    void addDataOnline(){
+        AndroidNetworking.get("https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id="+id)
+                .setTag("test")
+                .setPriority(Priority.LOW)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // do anything with response
+                        Log.d("hasiljson", "onResponse: " + response.toString());
+                        //jika sudah berhasil debugm lanjutkan code dibawah ini
+                        DataArrayListMatchResult = new ArrayList<>();
+                        ModelMatchResult modelku;
+                        try {
+                            Log.d("hasiljson", "onResponse: " + response.toString());
+                            JSONArray jsonArray = response.getJSONArray("results");
+                            Log.d("hasiljson2", "onResponse: " + jsonArray.toString());
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                modelku = new ModelMatchResult();
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                modelku.setStrHomeTeam(jsonObject.getString("strHomeTeam"));
+                                modelku.setStrAwayTeam(jsonObject.getString("strAwayTeam"));
+                                modelku.setDateEvent(jsonObject.getString("dateEvent"));
+                                modelku.setIntHomeScore(jsonObject.getString("intHomeScore"));
+                                modelku.setIntAwayScore(jsonObject.getString("intAwayScore"));
+                                DataArrayListMatchResult.add(modelku);
+                            }
+                            //untuk handle click
+                            dataAdapterMatchResult = new DataAdapterMatchResult(DataArrayListMatchResult, new DataAdapterMatchResult.Callback() {
+                                @Override
+                                public void onClick(int position) {
+
+                                }
+
+                                @Override
+                                public void test() {
+
+                                }
+                            });
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                            recyclerView.setLayoutManager(layoutManager);
+                            recyclerView.setAdapter(dataAdapterMatchResult);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(ANError error) {
+                        // handle error
+                        Log.d("errorku", "onError errorCode : " + error.getErrorCode());
+                        Log.d("errorku", "onError errorBody : " + error.getErrorBody());
+                        Log.d("errorku", "onError errorDetail : " + error.getErrorDetail());
+                    }
+                });
+    }
+
 }
