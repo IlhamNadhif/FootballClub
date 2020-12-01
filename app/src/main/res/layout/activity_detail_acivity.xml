@@ -39,60 +39,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
 
-                        <TextView
-                            android:textSize="15dp"
-                            android:layout_marginTop="10dp"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            android:text="Stadium Name"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
 
-                        <TextView
-                            android:id="@+id/tvStadiunName"
-                            android:textSize="13dp"
-                            android:fontFamily="@font/montserrat_light"
-                            android:textColor="@color/White_80"
-                            android:textStyle="bold"
-                            android:text="Emirates Stadium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            android:text="Stadium Location"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:id="@+id/tvStadiunLocation"
-                            android:textSize="13dp"
-                            android:fontFamily="@font/montserrat_light"
-                            android:textColor="@color/White_80"
-                            android:textStyle="bold"
-                            android:text="Emirates Stadium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            android:text="Stadium Capacity"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:id="@+id/tvStadiunCapacity"
-                            android:textSize="13dp"
-                            android:fontFamily="@font/montserrat_light"
-                            android:textColor="@color/White_80"
-                            android:textStyle="bold"
-                            android:text="Emirates Stadium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -113,6 +60,6 @@
                 android:id="@+id/viewPagerDetail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="300dp" />
+                android:layout_marginTop="280dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

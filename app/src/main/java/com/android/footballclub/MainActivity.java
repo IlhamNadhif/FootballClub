@@ -24,9 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
-        toolbar = findViewById(R.id.toolbar);
-
-        setSupportActionBar(toolbar);
         getTabs();
     }
 
@@ -37,12 +34,14 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 viewPagerAdapter.addFragment(ClubFragment.getInstance(), "Club");
                 viewPagerAdapter.addFragment(EventFragment.getInstance(), "Event");
+                viewPagerAdapter.addFragment(FavouriteFragment.getInstance(), "Favourite");
 
                 viewPager.setAdapter(viewPagerAdapter);
                 tabLayout.setupWithViewPager(viewPager);
 
-                tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_airplanemode_active_24);
-                tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_airplanemode_active_24);
+                tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_sports_soccer_24);
+                tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_event_24);
+                tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_favorite_24);
             }
         });
     }

@@ -135,6 +135,7 @@ public class ClubFragment extends Fragment {
                                 modelku.setStrAlternate(jsonObject.getString("strAlternate"));
                                 modelku.setStrStadium(jsonObject.getString("strStadium"));
                                 modelku.setIntStadiumCapacity(jsonObject.getString("intStadiumCapacity"));
+                                modelku.setStrStadiumDescription(jsonObject.getString("strStadiumDescription"));
                                 DataArrayList.add(modelku);
                             }
                             //untuk handle click
@@ -146,10 +147,11 @@ public class ClubFragment extends Fragment {
                                     intent.putExtra("id",Club.idTeam);
                                     intent.putExtra("namaClub",Club.strTeam);
                                     intent.putExtra("logoClub",Club.strTeamBadge);
-                                    intent.putExtra("namastadium",Club.strStadium);
-                                    intent.putExtra("deskripsi",Club.strDescriptionEN);
-                                    intent.putExtra("lokasistadium",Club.strStadiumLocation);
-                                    intent.putExtra("kapasitasstadium",Club.intStadiumCapacity);
+                                    intent.putExtra("deskripsiClub",Club.strDescriptionEN);
+                                    intent.putExtra("namaStadium",Club.strStadium);
+                                    intent.putExtra("lokasiStadium",Club.strStadiumLocation);
+                                    intent.putExtra("kapasitasStadium",Club.intStadiumCapacity);
+                                    intent.putExtra("deskripsiStadium",Club.strStadiumDescription);
                                     startActivity(intent);
                                 }
 

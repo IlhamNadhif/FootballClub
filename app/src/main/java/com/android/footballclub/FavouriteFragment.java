@@ -7,21 +7,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.Target;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DescriptionFragment#newInstance} factory method to
+ * Use the {@link FavouriteFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DescriptionFragment extends Fragment {
+public class FavouriteFragment extends Fragment {
 
-    public static DescriptionFragment getInstance(){
-        DescriptionFragment descriptionFragment = new DescriptionFragment();
-        return descriptionFragment;
+    public static FavouriteFragment getInstance(){
+        FavouriteFragment favouriteFragment = new FavouriteFragment();
+        return favouriteFragment;
     }
 
     // TODO: Rename parameter arguments, choose names that match
@@ -33,7 +29,7 @@ public class DescriptionFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public DescriptionFragment() {
+    public FavouriteFragment() {
         // Required empty public constructor
     }
 
@@ -43,11 +39,11 @@ public class DescriptionFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DescriptionFragment.
+     * @return A new instance of fragment FavouriteFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DescriptionFragment newInstance(String param1, String param2) {
-        DescriptionFragment fragment = new DescriptionFragment();
+    public static FavouriteFragment newInstance(String param1, String param2) {
+        FavouriteFragment fragment = new FavouriteFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,28 +60,10 @@ public class DescriptionFragment extends Fragment {
         }
     }
 
-    Bundle extras;
-    TextView tvdesc;
-    String description;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_description, container, false);
-
-        Bundle extras = getActivity().getIntent().getExtras();
-        tvdesc = (TextView) view.findViewById(R.id.tvDescriptionValue);
-
-        if (extras != null) {
-
-            description = extras.getString("deskripsiClub");
-
-            tvdesc.setText(description);
-
-            // and get whatever type user account id is
-        }
-
         // Inflate the layout for this fragment
-        return view;
+        return inflater.inflate(R.layout.fragment_favourite, container, false);
     }
 }

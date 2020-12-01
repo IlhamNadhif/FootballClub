@@ -3,15 +3,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#031F37"
     tools:context=".PlayerFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
-        android:textSize="40dp"
-        android:textColor="@color/colorAccent"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Player" />
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivStadium"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:id="@+id/tvStadiunName"
+                android:textSize="20dp"
+                android:fontFamily="@font/montserrat_light"
+                android:textColor="@color/White_80"
+                android:textStyle="bold"
+                android:text="Emirates Stadium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="Stadium Location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvStadiunLocation"
+                android:textSize="13dp"
+                android:fontFamily="@font/montserrat_light"
+                android:textColor="@color/White_80"
+                android:textStyle="bold"
+                android:text="Emirates Stadium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="Stadium Capacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvStadiunCapacity"
+                android:textSize="13dp"
+                android:fontFamily="@font/montserrat_light"
+                android:textColor="@color/White_80"
+                android:textStyle="bold"
+                android:text="64365"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="Description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvStadiunDescription"
+                android:textSize="13dp"
+                android:fontFamily="@font/montserrat_light"
+                android:textColor="@color/White_80"
+                android:textStyle="bold"
+                android:text="The Emirates Stadium (known as Ashburton Grove prior to sponsorship"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

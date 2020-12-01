@@ -25,10 +25,6 @@ public class DetailAcivity extends AppCompatActivity {
 
     TextView tvNamaTeam;
     ImageView ivlogo;
-    TextView tvStadiumName;
-    TextView tvStadiumLocation;
-    TextView tvStadiumCapacity;
-
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -40,9 +36,6 @@ public class DetailAcivity extends AppCompatActivity {
         extras = getIntent().getExtras();
         ivlogo = (ImageView) findViewById(R.id.ivPoster);
         tvNamaTeam = (TextView)findViewById(R.id.tvClubTittle);
-        tvStadiumName = (TextView)findViewById(R.id.tvStadiunName);
-        tvStadiumLocation = (TextView)findViewById(R.id.tvStadiunLocation);
-        tvStadiumCapacity = (TextView)findViewById(R.id.tvStadiunCapacity);
 
 
 
@@ -50,14 +43,8 @@ public class DetailAcivity extends AppCompatActivity {
             id = extras.getString("id");
             title = extras.getString("namaClub");
             logo = extras.getString("logoClub");
-            stadiumName = extras.getString("namastadium");
-            stadiumLocation = extras.getString("lokasistadium");
-            stadiumCapacity = extras.getString("kapasitasstadium");
 
             tvNamaTeam.setText(title);
-            tvStadiumName.setText(stadiumName);
-            tvStadiumLocation.setText(stadiumLocation);
-            tvStadiumCapacity.setText(stadiumCapacity);
             Glide.with(DetailAcivity.this)
                     .load(logo)
                     .override(Target.SIZE_ORIGINAL)
@@ -78,8 +65,8 @@ public class DetailAcivity extends AppCompatActivity {
             @Override
             public void run() {
                 viewPagerAdapter.addFragment(DescriptionFragment.getInstance(), "Description");
+                viewPagerAdapter.addFragment(PlayerFragment.getInstance(), "Stadium");
                 viewPagerAdapter.addFragment(MatchFragment.getInstance(), "Match");
-                viewPagerAdapter.addFragment(PlayerFragment.getInstance(), "Player");
 
                 viewPager.setAdapter(viewPagerAdapter);
                 tabLayout.setupWithViewPager(viewPager);

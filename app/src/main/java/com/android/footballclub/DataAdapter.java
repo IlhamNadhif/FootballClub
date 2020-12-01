@@ -43,7 +43,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
     public void onBindViewHolder(final DatakuViewHolder holder, final int position) {
         holder.tvName.setText(dataList.get(position).getStrTeam());
         holder.tvTahun.setText(dataList.get(position).getIntFormedYear());
-        holder.tvLokasi.setText(dataList.get(position).getStrStadiumLocation());
+        holder.tvCountry.setText(dataList.get(position).getStrCountry());
         holder.tvNamaLain.setText(dataList.get(position).getStrAlternate());
         Log.d("logo", "onBindViewHolder: "+dataList.get(position).getStrTeamBadge());
         //pakai glide karena untuk nampilkan data gambar dari URL / permission / graddle
@@ -58,7 +58,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
         return (dataList != null) ? dataList.size() : 0;
     }
     public class DatakuViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
-        private TextView tvName, tvTahun,tvLokasi, tvNamaLain;
+        private TextView tvName, tvTahun,tvCountry, tvNamaLain;
         CardView card;
         ImageView ivprofile;
         public DatakuViewHolder(View itemView) {
@@ -68,7 +68,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
             ivprofile = (ImageView) itemView.findViewById(R.id.ivprofile);
             tvName = (TextView) itemView.findViewById(R.id.tvname);
             tvTahun = (TextView) itemView.findViewById(R.id.tvTahun);
-            tvLokasi = (TextView) itemView.findViewById(R.id.tvLokasi);
+            tvCountry = (TextView) itemView.findViewById(R.id.tvCountry);
             tvNamaLain = (TextView) itemView.findViewById(R.id.tvNamalain);
             itemView.setOnCreateContextMenuListener(this);
             itemView.setOnClickListener(new View.OnClickListener() {

@@ -12,11 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"/>
-
         <com.google.android.material.tabs.TabLayout
             app:tabIconTint="@android:color/darker_gray"
             android:background="#031F37"
