@@ -1,150 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    android:id="@+id/cardEvent"
+    android:id="@+id/cardMatch"
     android:layout_margin="10dp"
     android:elevation="10dp"
     app:cardElevation="10dp"
+    app:cardCornerRadius="8dp"
+    app:cardBackgroundColor="#324355"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/tvTeamMatch"
+            android:textColor="#fdb501"
+            style="@style/NameEvent"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:text="Arsenal vs Wolves"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
+        <TextView
+            android:id="@+id/dateMatch"
+            android:textColor="@color/White_80"
+            android:layout_marginTop="5dp"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            android:text="2020-11-29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
             android:layout_gravity="center"
-            android:layout_margin="10dp"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:layout_margin="10dp"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/tvMatchTeam1"
-                    android:src="@drawable/ic_launcher_background"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-
-                    <TextView
-                        android:layout_marginRight="18dp"
-                        android:padding="5dp"
-                        android:textSize="17dp"
-                        android:textColor="#1C35C1"
-                        android:textStyle="bold"
-                        android:text="Arsenal"
-                        android:id="@+id/matchTeam1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:layout_gravity="center"
-                        android:layout_marginRight="18dp"
-                        android:padding="5dp"
-                        android:textSize="17dp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:text="6"
-                        android:id="@+id/matchScoreTeam1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-
-
-            <TextView
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:text="VS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                    android:id="@+id/ivMatchTeam1"
+                    android:layout_marginRight="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_launcher_background" />
 
                 <TextView
-
-                    android:padding="5dp"
-                    android:textSize="17dp"
-                    android:textColor="#1C35C1"
-                    android:textStyle="bold"
-                    android:text="Liverpool"
-                    android:id="@+id/matchTeam2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
+                    android:id="@+id/matchScoreTeam1"
+                    android:textColor="@color/white"
                     android:layout_gravity="center"
-                    android:layout_marginRight="18dp"
-                    android:padding="5dp"
-                    android:textSize="17dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="4"
-                    android:id="@+id/matchScoreTeam2"
+                    android:textSize="30dp"
+                    android:text="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-
             </LinearLayout>
+
+            <TextView
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center"
+                android:textSize="30dp"
+                android:text=":"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/matchScoreTeam2"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:textSize="30dp"
+                    android:text="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
                 <ImageView
-                    android:id="@+id/tvMatchTeam2"
-                    android:src="@drawable/ic_launcher_background"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"/>
+                    android:id="@+id/ivMatchTeam2"
+                    android:layout_marginLeft="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_launcher_background" />
+
+
+
             </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:text="Date : "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/eventDate"
-                android:text="20/20/2090"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
     </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        -->
+<!--        <LinearLayout-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <LinearLayout-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/tvMatchTeam1"-->
+<!--                    android:src="@drawable/ic_launcher_background"-->
+<!--                    android:layout_width="70dp"-->
+<!--                    android:layout_height="70dp"/>-->
+
+<!--                <LinearLayout-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content">-->
+
+
+<!--                    <TextView-->
+<!--                        android:layout_marginRight="18dp"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="17dp"-->
+<!--                        android:textColor="#1C35C1"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:text="Arsenal"-->
+<!--                        android:id="@+id/matchTeam1"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"/>-->
+
+<!--                    <TextView-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginRight="18dp"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="17dp"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:text="6"-->
+<!--                        android:id="@+id/matchScoreTeam1"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"/>-->
+
+
+<!--                </LinearLayout>-->
+
+<!--            </LinearLayout>-->
+
+
+
+
+<!--            <TextView-->
+<!--                android:textSize="20dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:text="VS"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <LinearLayout-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
+
+
+
+<!--            <LinearLayout-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <TextView-->
+
+<!--                    android:padding="5dp"-->
+<!--                    android:textSize="17dp"-->
+<!--                    android:textColor="#1C35C1"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:text="Liverpool"-->
+<!--                    android:id="@+id/matchTeam2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginRight="18dp"-->
+<!--                    android:padding="5dp"-->
+<!--                    android:textSize="17dp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:text="4"-->
+<!--                    android:id="@+id/matchScoreTeam2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"/>-->
+
+
+<!--            </LinearLayout>-->
+<!--                <ImageView-->
+<!--                    android:id="@+id/tvMatchTeam2"-->
+<!--                    android:src="@drawable/ic_launcher_background"-->
+<!--                    android:layout_width="70dp"-->
+<!--                    android:layout_height="70dp"/>-->
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <TextView-->
+<!--                android:text="Date : "-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/eventDate"-->
+<!--                android:text="20/20/2090"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--        </LinearLayout>-->
+
+<!--    </LinearLayout>-->
 
 </androidx.cardview.widget.CardView>

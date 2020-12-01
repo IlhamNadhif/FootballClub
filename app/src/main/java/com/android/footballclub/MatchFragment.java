@@ -122,8 +122,7 @@ public class MatchFragment extends Fragment {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 modelku = new ModelMatchResult();
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                modelku.setStrHomeTeam(jsonObject.getString("strHomeTeam"));
-                                modelku.setStrAwayTeam(jsonObject.getString("strAwayTeam"));
+                                modelku.setStrEvent(jsonObject.getString("strEvent"));
                                 modelku.setDateEvent(jsonObject.getString("dateEvent"));
                                 modelku.setIntHomeScore(jsonObject.getString("intHomeScore"));
                                 modelku.setIntAwayScore(jsonObject.getString("intAwayScore"));

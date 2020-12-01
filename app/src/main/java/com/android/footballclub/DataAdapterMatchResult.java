@@ -38,8 +38,7 @@ public class DataAdapterMatchResult extends RecyclerView.Adapter<DataAdapterMatc
     }
     @Override
     public void onBindViewHolder(final DataMatchResultViewHolder holder, final int position) {
-        holder.tvTeam1.setText(dataMatchResult.get(position).getStrHomeTeam());
-        holder.tvTeam2.setText(dataMatchResult.get(position).getStrAwayTeam());
+        holder.tvTeamMatch.setText(dataMatchResult.get(position).getStrEvent());
         holder.tvDate.setText(dataMatchResult.get(position).getDateEvent());
         holder.tvScoreTeam1.setText(dataMatchResult.get(position).getIntAwayScore());
         holder.tvScoreTeam2.setText(dataMatchResult.get(position).getIntHomeScore());
@@ -49,20 +48,19 @@ public class DataAdapterMatchResult extends RecyclerView.Adapter<DataAdapterMatc
         return (dataMatchResult != null) ? dataMatchResult.size() : 0;
     }
     public class DataMatchResultViewHolder extends RecyclerView.ViewHolder{
-        private TextView tvTeam1, tvTeam2, tvDate, tvScoreTeam1, tvScoreTeam2;
+        private TextView tvTeamMatch, tvDate, tvScoreTeam1, tvScoreTeam2;
         CardView card;
-        ImageView tvMatchTeam1, tvMatchTeam2;
+        ImageView ivMatchTeam1, ivMatchTeam2;
         public DataMatchResultViewHolder(View itemView) {
             super(itemView);
             viewku=itemView;
-            card = (CardView) itemView.findViewById(R.id.cardEvent);
-            tvTeam1 = (TextView) itemView.findViewById(R.id.matchTeam1);
-            tvTeam2 = (TextView) itemView.findViewById(R.id.matchTeam2);
-            tvDate = (TextView) itemView.findViewById(R.id.eventDate);
+            card = (CardView) itemView.findViewById(R.id.cardMatch);
+            tvDate = (TextView) itemView.findViewById(R.id.dateMatch);
+            tvTeamMatch = (TextView) itemView.findViewById(R.id.tvTeamMatch);
             tvScoreTeam1 = (TextView) itemView.findViewById(R.id.matchScoreTeam1);
             tvScoreTeam2 = (TextView) itemView.findViewById(R.id.matchScoreTeam2);
-            tvMatchTeam1 = (ImageView) itemView.findViewById(R.id.tvMatchTeam1);
-            tvMatchTeam2 = (ImageView) itemView.findViewById(R.id.tvMatchTeam2);
+            ivMatchTeam1 = (ImageView) itemView.findViewById(R.id.ivMatchTeam1);
+            ivMatchTeam2 = (ImageView) itemView.findViewById(R.id.ivMatchTeam2);
         }
 
     }

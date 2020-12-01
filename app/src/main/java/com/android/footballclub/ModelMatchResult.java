@@ -8,6 +8,7 @@ public class ModelMatchResult {
     String dateEvent;
     String intHomeScore;
     String intAwayScore;
+    String strEvent;
 
     public int getIdEvent() {
         return idEvent;
@@ -57,4 +58,11 @@ public class ModelMatchResult {
         this.intAwayScore = intAwayScore;
     }
 
+    public String getStrEvent() {
+        return strEvent;
+    }
+
+    public void setStrEvent(String strEvent) {
+        this.strEvent = strEvent;
+    }
 }

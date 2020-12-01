@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,116 +8,111 @@
     android:layout_height="match_parent"
     tools:context=".DetailAcivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <FrameLayout
-                    android:id="@+id/flBackdrop"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@color/purple_500"
-                    android:foreground="@drawable/shape_gradient"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/ivCover"
-                        android:layout_width="match_parent"
-                        android:layout_height="240dp"
-                        android:scaleType="centerCrop" />
-
-
-                </FrameLayout>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    app:cardBackgroundColor="@color/windowBackground"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="8dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/flBackdrop"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/flBackdrop">
-
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <ImageView
                         android:id="@+id/ivPoster"
-                        android:layout_width="100dp"
-                        android:layout_height="130dp"
-                        android:background="#00FFFFFF" />
+                        android:layout_margin="20dp"
+                        android:layout_width="140dp"
+                        android:layout_height="190dp"/>
 
-                </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tvClubTittle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:ellipsize="marquee"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:marqueeRepeatLimit="marquee_forever"
-                    android:singleLine="true"
-                    android:text="Arsenal"
-                    android:textColor="@color/White_100"
-                    android:textSize="23sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/flBackdrop"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/cardView2"
-                    app:layout_constraintTop_toBottomOf="@+id/flBackdrop" />
+                        <TextView
+                            android:id="@+id/tvClubTittle"
+                            android:textColor="@color/White_100"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Arsenal"
+                            android:textSize="26sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
 
+                        <TextView
+                            android:textSize="15dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:text="Stadium Name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:id="@+id/tvCountry"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/montserrat_light"
-                    android:maxLines="1"
-                    android:text="English"
-                    android:textColor="@color/White_80"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tvClubTittle"
-                    app:layout_constraintTop_toBottomOf="@+id/tvClubTittle" />
+                        <TextView
+                            android:id="@+id/tvStadiunName"
+                            android:textSize="13dp"
+                            android:fontFamily="@font/montserrat_light"
+                            android:textColor="@color/White_80"
+                            android:textStyle="bold"
+                            android:text="Emirates Stadium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:text="Stadium Location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayoutDetail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="320dp"
-                app:tabMode="fixed"
-                app:tabSelectedTextColor="@color/black"
-                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-                app:tabTextColor="@android:color/darker_gray">
+                        <TextView
+                            android:id="@+id/tvStadiunLocation"
+                            android:textSize="13dp"
+                            android:fontFamily="@font/montserrat_light"
+                            android:textColor="@color/White_80"
+                            android:textStyle="bold"
+                            android:text="Emirates Stadium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
 
-            </com.google.android.material.tabs.TabLayout>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:text="Stadium Capacity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
 
+                        <TextView
+                            android:id="@+id/tvStadiunCapacity"
+                            android:textSize="13dp"
+                            android:fontFamily="@font/montserrat_light"
+                            android:textColor="@color/White_80"
+                            android:textStyle="bold"
+                            android:text="Emirates Stadium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:background="#031F37"
+                    android:id="@+id/tabLayoutDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:tabMode="fixed"
+                    app:tabIndicatorColor="#ffc60b"
+                    app:tabSelectedTextColor="#ffc60b"
+                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                    app:tabTextColor="@android:color/darker_gray">
+                </com.google.android.material.tabs.TabLayout>
+            </LinearLayout>
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPagerDetail"
                 android:layout_width="match_parent"
-                android:layout_height="800dp"
-                android:layout_marginTop="369dp" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="300dp" />
 
-
-        </RelativeLayout>
-
-    </ScrollView>
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

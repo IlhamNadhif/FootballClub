@@ -6,14 +6,20 @@
     tools:context=".DescriptionFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tvDescriptionValue"
-        android:layout_margin="16dp"
-        android:textSize="14sp"
-        android:fontFamily="@font/montserrat_light"
-        android:textColor="@color/White_80"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Deskripsi" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvDescriptionValue"
+            android:layout_margin="16dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat_light"
+            android:textColor="@color/White_80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi" />
+    </ScrollView>
+
 
 </FrameLayout>

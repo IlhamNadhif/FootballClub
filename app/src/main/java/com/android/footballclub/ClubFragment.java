@@ -1,5 +1,6 @@
 package com.android.footballclub;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -83,6 +84,7 @@ public class ClubFragment extends Fragment {
     private DataAdapter adapter;
     private ArrayList<Model> DataArrayList; //kit add kan ke adapter
     private ImageView tambah_data;
+    ProgressDialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,6 +92,7 @@ public class ClubFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_club, container, false);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        dialog = new ProgressDialog(getActivity());
 
         addDataOnline();
 
@@ -98,6 +101,10 @@ public class ClubFragment extends Fragment {
     }
 
     void addDataOnline(){
+        //kasih loading
+        dialog.setMessage("Sedang memproses data");
+        dialog.show();
+
         AndroidNetworking.get("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League")
                 .setTag("test")
                 .setPriority(Priority.LOW)
@@ -126,6 +133,8 @@ public class ClubFragment extends Fragment {
                                 modelku.setIntFormedYear(jsonObject.getString("intFormedYear"));
                                 modelku.setStrStadiumLocation(jsonObject.getString("strStadiumLocation"));
                                 modelku.setStrAlternate(jsonObject.getString("strAlternate"));
+                                modelku.setStrStadium(jsonObject.getString("strStadium"));
+                                modelku.setIntStadiumCapacity(jsonObject.getString("intStadiumCapacity"));
                                 DataArrayList.add(modelku);
                             }
                             //untuk handle click
@@ -137,9 +146,10 @@ public class ClubFragment extends Fragment {
                                     intent.putExtra("id",Club.idTeam);
                                     intent.putExtra("namaClub",Club.strTeam);
                                     intent.putExtra("logoClub",Club.strTeamBadge);
-                                    intent.putExtra("negara",Club.strCountry);
+                                    intent.putExtra("namastadium",Club.strStadium);
                                     intent.putExtra("deskripsi",Club.strDescriptionEN);
-                                    intent.putExtra("stadiun",Club.strStadiumThumb);
+                                    intent.putExtra("lokasistadium",Club.strStadiumLocation);
+                                    intent.putExtra("kapasitasstadium",Club.intStadiumCapacity);
                                     startActivity(intent);
                                 }
 
@@ -151,18 +161,32 @@ public class ClubFragment extends Fragment {
                             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                             recyclerView.setLayoutManager(layoutManager);
                             recyclerView.setAdapter(adapter);
+
+                            recyclerView.setVisibility(View.VISIBLE);
+                            if (dialog.isShowing()) {
+                                dialog.dismiss();
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            if (dialog.isShowing()) {
+                                dialog.dismiss();
+                            }
                         }
 
                     }
 
                     @Override
                     public void onError(ANError error) {
+                        recyclerView.setVisibility(View.VISIBLE);
+
                         // handle error
                         Log.d("errorku", "onError errorCode : " + error.getErrorCode());
                         Log.d("errorku", "onError errorBody : " + error.getErrorBody());
                         Log.d("errorku", "onError errorDetail : " + error.getErrorDetail());
+
+                        if (dialog.isShowing()) {
+                            dialog.dismiss();
+                        }
                     }
                 });
     }

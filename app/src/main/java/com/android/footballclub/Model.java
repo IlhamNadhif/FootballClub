@@ -12,6 +12,7 @@ public class Model {
     String strStadiumLocation;
     String strAlternate;
     String strStadium;
+    String intStadiumCapacity;
 
     public int getIdTeam() {
         return idTeam;
@@ -91,5 +92,13 @@ public class Model {
 
     public void setStrStadium(String strStadium) {
         this.strStadium = strStadium;
+    }
+
+    public String getIntStadiumCapacity() {
+        return intStadiumCapacity;
+    }
+
+    public void setIntStadiumCapacity(String intStadiumCapacity) {
+        this.intStadiumCapacity = intStadiumCapacity;
     }
 }
