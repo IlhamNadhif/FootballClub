@@ -73,7 +73,7 @@ public class DescriptionFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_description, container, false);
 
-        Bundle extras = getActivity().getIntent().getExtras();
+        extras = getActivity().getIntent().getExtras();
         tvdesc = (TextView) view.findViewById(R.id.tvDescriptionValue);
 
         if (extras != null) {

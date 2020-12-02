@@ -73,12 +73,13 @@ public class PlayerFragment extends Fragment {
     String lokasi;
     String kapasitas;
     String deskripsi;
+    String ivStadiumLogo;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_player, container, false);
 
-        Bundle extras = getActivity().getIntent().getExtras();
+        extras = getActivity().getIntent().getExtras();
         tvStadiunName = (TextView) view.findViewById(R.id.tvStadiunName);
         tvStadiunLocation = (TextView) view.findViewById(R.id.tvStadiunLocation);
         tvStadiunCapacity = (TextView) view.findViewById(R.id.tvStadiunCapacity);
@@ -91,16 +92,17 @@ public class PlayerFragment extends Fragment {
             lokasi = extras.getString("lokasiStadium");
             kapasitas = extras.getString("kapasitasStadium");
             deskripsi = extras.getString("deskripsiStadium");
+            ivStadiumLogo = extras.getString("LogoStadium");
 
             tvStadiunName.setText(nama);
             tvStadiunLocation.setText(lokasi);
             tvStadiunCapacity.setText(kapasitas);
             tvStadiunDescription.setText(deskripsi);
-//            Glide.with(holder.itemView)
-//                    .load(dataList.get(position).getStrTeamBadge())
-//                    .override(Target.SIZE_ORIGINAL)
-//                    .placeholder(R.mipmap.ic_launcher)
-//                    .into(holder.ivprofile);
+            Glide.with(getActivity())
+                    .load(ivStadiumLogo)
+                    .override(Target.SIZE_ORIGINAL)
+                    .placeholder(R.mipmap.ic_launcher)
+                    .into(ivStadium);
         }
 
         // Inflate the layout for this fragment

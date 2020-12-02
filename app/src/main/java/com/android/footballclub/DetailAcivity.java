@@ -3,8 +3,11 @@ package com.android.footballclub;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,14 +22,16 @@ public class DetailAcivity extends AppCompatActivity {
     String id;
     String title;
     String logo;
-    String stadiumName;
-    String stadiumLocation;
-    String stadiumCapacity;
+    String website;
+    String facebook;
+    String twitter;
+    String youtube;
 
     TextView tvNamaTeam;
     ImageView ivlogo;
     TabLayout tabLayout;
     ViewPager viewPager;
+    ImageView ivWebsite, ivFacebook, ivTwitter, ivYoutube;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,46 @@ public class DetailAcivity extends AppCompatActivity {
         extras = getIntent().getExtras();
         ivlogo = (ImageView) findViewById(R.id.ivPoster);
         tvNamaTeam = (TextView)findViewById(R.id.tvClubTittle);
+        ivWebsite = (ImageView)findViewById(R.id.website);
+        ivFacebook = (ImageView)findViewById(R.id.facebook);
+        ivTwitter = (ImageView)findViewById(R.id.twitter);
+        ivYoutube = (ImageView)findViewById(R.id.youtube);
+
+        ivWebsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("http://"+website);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        ivFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("http://"+facebook);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        ivTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("http://"+twitter);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        ivYoutube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("http://"+youtube);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -43,6 +88,10 @@ public class DetailAcivity extends AppCompatActivity {
             id = extras.getString("id");
             title = extras.getString("namaClub");
             logo = extras.getString("logoClub");
+            website = extras.getString("website");
+            facebook = extras.getString("facebook");
+            twitter = extras.getString("twitter");
+            youtube = extras.getString("youtube");
 
             tvNamaTeam.setText(title);
             Glide.with(DetailAcivity.this)

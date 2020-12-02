@@ -14,6 +14,10 @@ public class Model {
     String strStadium;
     String intStadiumCapacity;
     String strStadiumDescription;
+    String strWebsite;
+    String strFacebook;
+    String strTwitter;
+    String strYoutube;
 
     public int getIdTeam() {
         return idTeam;
@@ -109,5 +113,37 @@ public class Model {
 
     public void setStrStadiumDescription(String strStadiumDescription) {
         this.strStadiumDescription = strStadiumDescription;
+    }
+
+    public String getStrWebsite() {
+        return strWebsite;
+    }
+
+    public void setStrWebsite(String strWebsite) {
+        this.strWebsite = strWebsite;
+    }
+
+    public String getStrFacebook() {
+        return strFacebook;
+    }
+
+    public void setStrFacebook(String strFacebook) {
+        this.strFacebook = strFacebook;
+    }
+
+    public String getStrTwitter() {
+        return strTwitter;
+    }
+
+    public void setStrTwitter(String strTwitter) {
+        this.strTwitter = strTwitter;
+    }
+
+    public String getStrYoutube() {
+        return strYoutube;
+    }
+
+    public void setStrYoutube(String strYoutube) {
+        this.strYoutube = strYoutube;
     }
 }

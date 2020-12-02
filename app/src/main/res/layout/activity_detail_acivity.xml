@@ -14,19 +14,22 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/ic_launcher"
                         android:id="@+id/ivPoster"
-                        android:layout_margin="20dp"
-                        android:layout_width="140dp"
-                        android:layout_height="190dp"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
                     <LinearLayout
                         android:orientation="vertical"
-                        android:layout_marginTop="20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -40,11 +43,50 @@
                             android:layout_height="wrap_content"/>
 
 
+
+
                     </LinearLayout>
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_marginRight="20dp"
+                    android:layout_gravity="right"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/website"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/ic_website" />
+
+                    <ImageView
+                        android:id="@+id/facebook"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/ic_facebook"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"/>
+
+                    <ImageView
+                        android:id="@+id/twitter"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/ic_twitter"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"/>
+
+                    <ImageView
+                        android:id="@+id/youtube"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/ic_youtube"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"/>
+                </LinearLayout>
+
                 <com.google.android.material.tabs.TabLayout
+                    android:layout_marginTop="10dp"
                     android:background="#031F37"
                     android:id="@+id/tabLayoutDetail"
                     android:layout_width="match_parent"
@@ -60,6 +102,6 @@
                 android:id="@+id/viewPagerDetail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="280dp" />
+                android:layout_marginTop="320dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

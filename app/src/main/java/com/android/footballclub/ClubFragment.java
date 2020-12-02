@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
@@ -84,7 +85,7 @@ public class ClubFragment extends Fragment {
     private DataAdapter adapter;
     private ArrayList<Model> DataArrayList; //kit add kan ke adapter
     private ImageView tambah_data;
-    ProgressDialog dialog;
+    private ProgressBar PrgrsBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,7 +93,7 @@ public class ClubFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_club, container, false);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        dialog = new ProgressDialog(getActivity());
+        PrgrsBar = (ProgressBar) view.findViewById(R.id.progresBarClub);
 
         addDataOnline();
 
@@ -101,10 +102,6 @@ public class ClubFragment extends Fragment {
     }
 
     void addDataOnline(){
-        //kasih loading
-        dialog.setMessage("Sedang memproses data");
-        dialog.show();
-
         AndroidNetworking.get("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League")
                 .setTag("test")
                 .setPriority(Priority.LOW)
@@ -136,6 +133,10 @@ public class ClubFragment extends Fragment {
                                 modelku.setStrStadium(jsonObject.getString("strStadium"));
                                 modelku.setIntStadiumCapacity(jsonObject.getString("intStadiumCapacity"));
                                 modelku.setStrStadiumDescription(jsonObject.getString("strStadiumDescription"));
+                                modelku.setStrWebsite(jsonObject.getString("strWebsite"));
+                                modelku.setStrFacebook(jsonObject.getString("strFacebook"));
+                                modelku.setStrTwitter(jsonObject.getString("strTwitter"));
+                                modelku.setStrYoutube(jsonObject.getString("strYoutube"));
                                 DataArrayList.add(modelku);
                             }
                             //untuk handle click
@@ -149,9 +150,14 @@ public class ClubFragment extends Fragment {
                                     intent.putExtra("logoClub",Club.strTeamBadge);
                                     intent.putExtra("deskripsiClub",Club.strDescriptionEN);
                                     intent.putExtra("namaStadium",Club.strStadium);
+                                    intent.putExtra("LogoStadium",Club.strStadiumThumb);
                                     intent.putExtra("lokasiStadium",Club.strStadiumLocation);
                                     intent.putExtra("kapasitasStadium",Club.intStadiumCapacity);
                                     intent.putExtra("deskripsiStadium",Club.strStadiumDescription);
+                                    intent.putExtra("website",Club.strWebsite);
+                                    intent.putExtra("facebook",Club.strFacebook);
+                                    intent.putExtra("twitter",Club.strTwitter);
+                                    intent.putExtra("youtube",Club.strYoutube);
                                     startActivity(intent);
                                 }
 
@@ -164,31 +170,23 @@ public class ClubFragment extends Fragment {
                             recyclerView.setLayoutManager(layoutManager);
                             recyclerView.setAdapter(adapter);
 
-                            recyclerView.setVisibility(View.VISIBLE);
-                            if (dialog.isShowing()) {
-                                dialog.dismiss();
-                            }
+                            PrgrsBar.setVisibility(View.INVISIBLE);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            if (dialog.isShowing()) {
-                                dialog.dismiss();
-                            }
                         }
 
                     }
 
                     @Override
                     public void onError(ANError error) {
-                        recyclerView.setVisibility(View.VISIBLE);
+                        PrgrsBar.setVisibility(View.INVISIBLE);
 
                         // handle error
                         Log.d("errorku", "onError errorCode : " + error.getErrorCode());
                         Log.d("errorku", "onError errorBody : " + error.getErrorBody());
                         Log.d("errorku", "onError errorDetail : " + error.getErrorDetail());
 
-                        if (dialog.isShowing()) {
-                            dialog.dismiss();
-                        }
                     }
                 });
     }
