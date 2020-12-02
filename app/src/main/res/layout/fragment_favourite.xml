@@ -16,10 +16,10 @@
     <TextView
         android:textColor="@color/white"
         android:id="@+id/tvnodata"
+        android:text="no data to show"
         android:layout_gravity="center"
         android:gravity="center"
         android:textSize="25sp"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="no data to show"/>
+        android:layout_height="match_parent"/>
 </FrameLayout>

@@ -75,7 +75,7 @@ public class FavouriteFragment extends Fragment {
     TextView tvnodata;
     RecyclerView recyclerView;
     DataAdapterFavourite adapter;
-    List<ModelClubRealm> DataArrayList; //kit add kan ke adapter
+    List<Model> DataArrayList; //kit add kan ke adapter
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -99,14 +99,26 @@ public class FavouriteFragment extends Fragment {
             adapter = new DataAdapterFavourite(DataArrayList, new DataAdapterFavourite.Callback() {
                 @Override
                 public void onClick(int position) {
-                    Intent move = new Intent(getActivity(), DetailFavourite.class);
-                    move.putExtra("namaClub",DataArrayList.get(position).getJudulClub());
-                    move.putExtra("logoClub",DataArrayList.get(position).getLogoClub());
-                    move.putExtra("namaAlternateClub",DataArrayList.get(position).getNamaClub());
-                    move.putExtra("lokasiStadium",DataArrayList.get(position).getNegaraClub());
-                    move.putExtra("tahunClub",DataArrayList.get(position).getTahunClub());
+                    Model Club = DataArrayList.get(position);
+                    Intent intent = new Intent(getActivity(), DetailAcivity.class);
+                    intent.putExtra("id",Club.idTeam);
+                    intent.putExtra("country",Club.strCountry);
+                    intent.putExtra("namaClub",Club.strTeam);
+                    intent.putExtra("namaAlternateClub",Club.strAlternate);
+                    intent.putExtra("logoClub",Club.strTeamBadge);
+                    intent.putExtra("deskripsiClub",Club.strDescriptionEN);
+                    intent.putExtra("tahunClub",Club.intFormedYear);
+                    intent.putExtra("namaStadium",Club.strStadium);
+                    intent.putExtra("LogoStadium",Club.strStadiumThumb);
+                    intent.putExtra("lokasiStadium",Club.strStadiumLocation);
+                    intent.putExtra("kapasitasStadium",Club.intStadiumCapacity);
+                    intent.putExtra("deskripsiStadium",Club.strStadiumDescription);
+                    intent.putExtra("website",Club.strWebsite);
+                    intent.putExtra("facebook",Club.strFacebook);
+                    intent.putExtra("twitter",Club.strTwitter);
+                    intent.putExtra("youtube",Club.strYoutube);
                     // di putextra yang lain
-                    startActivity(move);
+                    startActivity(intent);
                 }
 
                 @Override

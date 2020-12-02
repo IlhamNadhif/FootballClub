@@ -1,6 +1,8 @@
 package com.android.footballclub;
 
-public class Model {
+import io.realm.RealmObject;
+
+public class Model extends RealmObject {
 
     int idTeam;
     String strTeam;

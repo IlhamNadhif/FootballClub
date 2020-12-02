@@ -13,9 +13,6 @@ import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.Target;
-
 import java.util.ArrayList;
 
 public class DataAdapterEvent extends RecyclerView.Adapter<DataAdapterEvent.DataEventViewHolder> {

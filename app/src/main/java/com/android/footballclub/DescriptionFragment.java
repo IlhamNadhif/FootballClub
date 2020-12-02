@@ -9,9 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.Target;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link DescriptionFragment#newInstance} factory method to

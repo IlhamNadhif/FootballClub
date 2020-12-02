@@ -1,6 +1,5 @@
 package com.android.footballclub;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -12,10 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -121,7 +118,7 @@ public class ClubFragment extends Fragment {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 modelku = new Model();
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                modelku.setIdTeam(jsonObject.getInt("idTeam"));
+                                modelku.setIdTeam(Integer.parseInt(jsonObject.getString("idTeam")));
                                 modelku.setStrTeam(jsonObject.getString("strTeam"));
                                 modelku.setStrTeamBadge(jsonObject.getString("strTeamBadge"));
                                 modelku.setStrCountry(jsonObject.getString("strCountry"));
@@ -146,6 +143,7 @@ public class ClubFragment extends Fragment {
                                     Model Club = DataArrayList.get(position);
                                     Intent intent = new Intent(getActivity(), DetailAcivity.class);
                                     intent.putExtra("id",Club.idTeam);
+                                    intent.putExtra("country",Club.strCountry);
                                     intent.putExtra("namaClub",Club.strTeam);
                                     intent.putExtra("namaAlternateClub",Club.strAlternate);
                                     intent.putExtra("logoClub",Club.strTeamBadge);

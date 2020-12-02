@@ -16,21 +16,21 @@ public class RealmHelper {
     }
 
     // untuk menyimpan data
-    public void save(final ModelClubRealm clubModel){
+    public void save(final Model clubModel){
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
                 if (realm != null){
                     Log.e("Created", "Database was created");
-                    Number currentIdNum = realm.where(ModelClubRealm.class).max("id");
+                    Number currentIdNum = realm.where(Model.class).max("idTeam");
                     int nextId;
                     if (currentIdNum == null){
                         nextId = 1;
                     }else {
                         nextId = currentIdNum.intValue() + 1;
                     }
-                    clubModel.setId(nextId);
-                    ModelClubRealm model = realm.copyToRealm(clubModel);
+                    clubModel.setIdTeam(nextId);
+                    Model model = realm.copyToRealm(clubModel);
                 }else{
                     Log.e("ppppp", "execute: Database not Exist");
                 }
@@ -39,13 +39,13 @@ public class RealmHelper {
     }
 
     // untuk memanggil semua data
-    public List<ModelClubRealm> getAllClub(){
-        RealmResults<ModelClubRealm> results = realm.where(ModelClubRealm.class).findAll();
+    public List<Model> getAllClub(){
+        RealmResults<Model> results = realm.where(Model.class).findAll();
         return results;
     }
 
     public void delete(Integer id){
-        final RealmResults<ModelClubRealm> model = realm.where(ModelClubRealm.class).equalTo("id", id).findAll();
+        final RealmResults<Model> model = realm.where(Model.class).equalTo("id", id).findAll();
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {

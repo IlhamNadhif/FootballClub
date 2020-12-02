@@ -26,7 +26,7 @@ import io.realm.RealmConfiguration;
 
 public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavourite.DatakuViewHolder> {
 
-    private List<ModelClubRealm> dataList;
+    private List<Model> dataList;
     private Callback callback;
     View viewku;
     int posku;
@@ -39,7 +39,7 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
     }
 
 
-    public DataAdapterFavourite(List<ModelClubRealm> dataList, Callback callback) {
+    public DataAdapterFavourite(List<Model> dataList, Callback callback) {
         this.callback = callback;
         this.dataList = dataList;
         Log.d("makanan", "MahasiswaAdapter: "+dataList.size()+"");
@@ -57,12 +57,12 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
 
     @Override
     public void onBindViewHolder(final DatakuViewHolder holder, final int position) {
-        holder.tvJudul.setText(dataList.get(position).getJudulClub());
-        holder.tvTahun.setText(dataList.get(position).getTahunClub());
-        holder.tvCountry.setText(dataList.get(position).getNegaraClub());
-        holder.tvNamaLain.setText(dataList.get(position).getNamaClub());
+        holder.tvJudul.setText(dataList.get(position).getStrTeam());
+        holder.tvTahun.setText(dataList.get(position).getIntFormedYear());
+        holder.tvCountry.setText(dataList.get(position).getStrCountry());
+        holder.tvNamaLain.setText(dataList.get(position).getStrAlternate());
         Glide.with(holder.itemView)
-                .load(dataList.get(position).getLogoClub())
+                .load(dataList.get(position).getStrTeamBadge())
                 //.override(Target.SIZE_ORIGINAL)
                 .apply(new RequestOptions().override(600, 200))
                 .placeholder(R.mipmap.ic_launcher)
@@ -120,7 +120,7 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
                             switch (which){
                                 case DialogInterface.BUTTON_POSITIVE:
                                     //Yes button clicked
-                                    realmHelper.delete(dataList.get(posku).getId());
+                                    realmHelper.delete(dataList.get(posku).getIdTeam());
                                     notifyDataSetChanged();
                                     break;
 
