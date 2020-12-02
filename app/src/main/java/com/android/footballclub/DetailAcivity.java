@@ -11,10 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
 import com.google.android.material.tabs.TabLayout;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 public class DetailAcivity extends AppCompatActivity {
 
@@ -32,6 +36,11 @@ public class DetailAcivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     ImageView ivWebsite, ivFacebook, ivTwitter, ivYoutube;
+    Button btnFav;
+
+    Realm realm;
+    RealmHelper realmHelper;
+    ModelClubRealm clubModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +54,7 @@ public class DetailAcivity extends AppCompatActivity {
         ivFacebook = (ImageView)findViewById(R.id.facebook);
         ivTwitter = (ImageView)findViewById(R.id.twitter);
         ivYoutube = (ImageView)findViewById(R.id.youtube);
+        btnFav = (Button) findViewById(R.id.btnFavourite);
 
         ivWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +116,22 @@ public class DetailAcivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.tabLayoutDetail);
         viewPager = findViewById(R.id.viewPagerDetail);
+
+        //Set up Realm
+        Realm.init(DetailAcivity.this);
+        RealmConfiguration configuration = new RealmConfiguration.Builder().build();
+        realm = Realm.getInstance(configuration);
+
+        btnFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                realmHelper = new RealmHelper(realm);
+                realmHelper.save(clubModel);
+                Toast.makeText(DetailAcivity.this, "Berhasil ditambahkan", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     public void getTabs(){
@@ -122,4 +148,5 @@ public class DetailAcivity extends AppCompatActivity {
             }
         });
     }
+
 }

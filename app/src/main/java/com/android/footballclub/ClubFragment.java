@@ -147,8 +147,10 @@ public class ClubFragment extends Fragment {
                                     Intent intent = new Intent(getActivity(), DetailAcivity.class);
                                     intent.putExtra("id",Club.idTeam);
                                     intent.putExtra("namaClub",Club.strTeam);
+                                    intent.putExtra("namaAlternateClub",Club.strAlternate);
                                     intent.putExtra("logoClub",Club.strTeamBadge);
                                     intent.putExtra("deskripsiClub",Club.strDescriptionEN);
+                                    intent.putExtra("tahunClub",Club.intFormedYear);
                                     intent.putExtra("namaStadium",Club.strStadium);
                                     intent.putExtra("LogoStadium",Club.strStadiumThumb);
                                     intent.putExtra("lokasiStadium",Club.strStadiumLocation);
