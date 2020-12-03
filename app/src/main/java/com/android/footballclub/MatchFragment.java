@@ -99,9 +99,10 @@ public class MatchFragment extends Fragment {
 
         addDataOnline();
 
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragmentt
         return view;
     }
+
     void addDataOnline(){
         AndroidNetworking.get("https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id="+id)
                 .setTag("test")

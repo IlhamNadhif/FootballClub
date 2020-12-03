@@ -83,7 +83,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
 //            MenuItem Delete = menu.add(menu.NONE, 2, 2, "Delete");
 //            posku=getAdapterPosition();
 //            Edit.setOnMenuItemClickListener(onEditMenu);
-//            Delete.setOnMenuItemClickListener(onEditMenu);
+//            Delete.setOnMenuItemClickListener(onEditMenu);g
         }
     }
     private final MenuItem.OnMenuItemClickListener onEditMenu = new MenuItem.OnMenuItemClickListener() {
