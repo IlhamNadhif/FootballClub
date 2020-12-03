@@ -1,9 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#031F37"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailFavourite">
+    tools:context=".DetailAcivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/ivPosterFav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvClubTittleFav"
+                    android:textColor="@color/White_100"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Arsenal"
+                    android:textSize="26sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="20dp"
+            android:layout_gravity="right"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+
+            <ImageView
+                android:id="@+id/websiteFav"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/ic_website" />
+
+            <ImageView
+                android:id="@+id/facebookFav"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/ic_facebook"
+                android:layout_width="35dp"
+                android:layout_height="35dp"/>
+
+            <ImageView
+                android:id="@+id/twitterFav"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/ic_twitter"
+                android:layout_width="35dp"
+                android:layout_height="35dp"/>
+
+            <ImageView
+                android:id="@+id/youtubeFav"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/ic_youtube"
+                android:layout_width="35dp"
+                android:layout_height="35dp"/>
+        </LinearLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_marginTop="10dp"
+            android:background="#031F37"
+            android:id="@+id/tabLayoutDetailFav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tabMode="fixed"
+            app:tabIndicatorColor="#ffc60b"
+            app:tabSelectedTextColor="#ffc60b"
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+            app:tabTextColor="@android:color/darker_gray">
+        </com.google.android.material.tabs.TabLayout>
+    </LinearLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPagerDetailFav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="320dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

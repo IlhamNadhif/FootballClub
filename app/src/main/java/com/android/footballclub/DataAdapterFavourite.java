@@ -90,6 +90,14 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
             tvCountry = (TextView) itemView.findViewById(R.id.tvCountry);
             tvNamaLain = (TextView) itemView.findViewById(R.id.tvNamalain);
 
+            itemView.setOnCreateContextMenuListener(this);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    callback.onClick(getAdapterPosition());
+                }
+            });
         }
 
         @Override

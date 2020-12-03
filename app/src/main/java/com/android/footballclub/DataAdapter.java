@@ -79,11 +79,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
         }
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-//            MenuItem Edit = menu.add(Menu.NONE, 1, 1, "Edit");
-//            MenuItem Delete = menu.add(Menu.NONE, 2, 2, "Delete");
-//            posku=getAdapterPosition();
-//            Edit.setOnMenuItemClickListener(onEditMenu);
-//            Delete.setOnMenuItemClickListener(onEditMenu);
+            MenuItem Edit = menu.add(menu.NONE, 1, 1, "Edit");
+            MenuItem Delete = menu.add(menu.NONE, 2, 2, "Delete");
+            posku=getAdapterPosition();
+            Edit.setOnMenuItemClickListener(onEditMenu);
+            Delete.setOnMenuItemClickListener(onEditMenu);
         }
     }
     private final MenuItem.OnMenuItemClickListener onEditMenu = new MenuItem.OnMenuItemClickListener() {

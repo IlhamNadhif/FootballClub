@@ -45,7 +45,7 @@ public class RealmHelper {
     }
 
     public void delete(Integer id){
-        final RealmResults<Model> model = realm.where(Model.class).equalTo("id", id).findAll();
+        final RealmResults<Model> model = realm.where(Model.class).equalTo("idTeam", id).findAll();
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {

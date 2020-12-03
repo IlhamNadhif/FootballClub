@@ -100,7 +100,7 @@ public class FavouriteFragment extends Fragment {
                 @Override
                 public void onClick(int position) {
                     Model Club = DataArrayList.get(position);
-                    Intent intent = new Intent(getActivity(), DetailAcivity.class);
+                    Intent intent = new Intent(getActivity(), DetailFavourite.class);
                     intent.putExtra("id",Club.idTeam);
                     intent.putExtra("country",Club.strCountry);
                     intent.putExtra("namaClub",Club.strTeam);
