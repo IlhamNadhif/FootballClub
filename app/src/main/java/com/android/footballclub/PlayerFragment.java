@@ -101,7 +101,7 @@ public class PlayerFragment extends Fragment {
             Glide.with(getActivity())
                     .load(ivStadiumLogo)
                     .override(Target.SIZE_ORIGINAL)
-                    .placeholder(R.mipmap.ic_launcher)
+                    .placeholder(R.drawable.ic_launcher_background)
                     .into(ivStadium);
         }
 

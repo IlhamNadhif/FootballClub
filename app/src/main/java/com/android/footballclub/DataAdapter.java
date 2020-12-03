@@ -49,7 +49,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
         Glide.with(holder.itemView)
                 .load(dataList.get(position).getStrTeamBadge())
                 .override(Target.SIZE_ORIGINAL)
-                .placeholder(R.mipmap.ic_launcher)
+                .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.ivprofile);
     }
     @Override
